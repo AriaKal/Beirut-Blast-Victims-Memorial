@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <link rel="icon" href="Images/ribbon.png">
+    <title>Beirut Blast Victims' Memorial</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="masthead">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1>Beirut Blast Victims' Memorial</h1>
+            </div>
+        </div>
+        <div class="background-info">
+            <p id="background-info-text">On August 4 2020, at around 6PM local time, large ammounts of ammonium nitrate,
+                stored at a warehouse in the Beirut port, exploded. The devastation left thousands
+                homeless, hundreds injured and killed more than 200 people. Unfortunately, to this day, many people
+                still remain missing but the names of the victims that were identified are listed below in alphabetical
+                order. Their names will never be forgotten.<br><br>Rest in power.</p>
+        </div>
+    </header>
+
+    <div class="container ">
+        <div class="row victims-list">
+            <div class="col-sm-3" id="data1"></div>
+            <div class="col-sm-3" id="data2"></div>
+            <div class="col-sm-3" id="data3"></div>
+            <div class="col-sm-3" id="data4"></div>
+        </div>
+    </div>
+
+    <script>
+        var data = ["Abdel Halim El Ali Salem", "Abdel Kader Bloso", "Abdo Tanious Ata", "Ahmad Mohammad Ameira", "Ahmad Ibrahim Kaadan",
+            "Ali Abdo Ayoub", "Ali Hussein Zeineddine", "Ali Ismail El Sayed Chahata", "Amina Salim Karbik", "Antoine El Barmaki",
+            "Aram Sarkisian", "Arlet Meglangit", "Armand Tayan", "Asmahan Miled Faroukh", "Ayman Homsi", "Ayman Ibrahim Jasem Al Eid",
+            "Ayman Mostapha", "Ayman Obeid", "Ayman Sleiman", "Baby-Linn Serohijos", "Boulous Gemayel", "Chacke Sadek", "Charbel Mata",
+            "Charles Hapokian", "Christine El Adem", "Cilda Kino", "Claudia Khalil Lakkis", "Delia Boghos Guedikian", "Ezek Oheir",
+            "Fadi Hussein", "Fadi Naim", "Fares Kiwan", "Farouk Al Salloum", "Fawzi Kalailet", "Feryal Al Kiki", "Fida Khoury",
+            "Gaia Fadoulian", "George Pierro Demiani", "George Saad", "George Salim Al Wez", "Georges Madi", "Georges Farjallah Daibes",
+            "Gretta Attallah", "Hamad Medhat Al Attar", "Hanna George Akkbani", "Haoulo Ahmad Abbas", "Hassan Chames", "Hassan Kamel",
+            "Hassan Maneh", "Housam Batal", "Ibrahim Amin", "Issam Hany", "Issam Khalaf", "Iyad Zeid Al Amin", "Izabelleh Machaalani",
+            "Jack Bazikian", "Jackeline Gebrine", "Jacuqes Gemayel", "Jad Gergeh Al Dahdah", "Jean Fredric Alaw", "Jessica Bezdijian",
+            "Jessy Kahwaji Daoud", "Jihad Antoine Saade", "Joe Haddad", "Joe Akiki", "John Koubli ", "Jolbab Sajed Ali", "Joseph Roukoz",
+            "Josephine Abi Zeid", "Joud Hajj Mostapha", "Kaissar Merhej", "Kassem Youssef Al Mawla", "Katia Shamesdinne",
+            "Khaldiye Saaid Bakri", "Khaled Wahoud", "Khalil Badih Aoun Mjais", "Latifa Moustapha", "Laurette Owaida Richa", "Layla Metre Khoury",
+            "Lina Abo Hamdan", "Liza kezbekyan", "Mahmoud Ali Saiid", "Mahmoud Hussein Khaled", "Majida Kassab", "Margot Tabbal", "Maria Pia Emanuel Abo Sleiman",
+            "Mariam Hochar", "Marie Saad", "Mary Farhat", "Mary Khalil Touk", "Mazen Raja Zouheid", "Mehdy Hassan Rami", "Michel Kanaan",
+            "Mireille Germanos", "Mohamad Ahmad Alaedine", "Mohamad Ayrout", "Mohamad Hasan Al Sibaai", "Mohamad Mahmoud", "Mohammad Al Hussein", "Mohammad Alaa Din Damaj",
+            "Mohammad Ali Abbas", "Mohammad Nour Doughan", "Nawal Atieh", "Nawal Hamdan", "Nazar Nazarian", "Neamathallah Antoine Mekheiber",
+            "Nicol Majid Helo", "Nicolas Youssif Chedid", "Paulette Hashem", "Perlita Mendoza", "Rawan Misto", "Rezol Mounir Sekder", "Robert Youssef Semaan",
+            "Rushi Jamal", "Sabah Merhej Merhej Nassour", "Sahar Fares", "Samir Boulous Karam", "Sophie Khosrafian", "Taha Tsouni", "Tanios Mekhayel El Murr",
+            "Therese Merhi Antoun", "Warijan Oghos Tassonian", "William Azar", "Wissam Faisal", "Yehya Azam Hamwi", "Youssef Saleh", "Yvette Gergi", "Zeina Chamoun",
+            "Zeina Zakkour", "Ziad Mostafa Al Sobh", "Ayman Noureddine", "Alexandra Najjar"];
+        data = data.sort();
+
+        for (i = 0; i < data.length; i += 4) {
+            document.getElementById("data1").innerHTML += data[i] + "<br/><br/>";
+            document.getElementById("data2").innerHTML += data[i + 1] + "<br/><br/>";
+            document.getElementById("data3").innerHTML += data[i + 2] + "<br/><br/>";
+            document.getElementById("data4").innerHTML += data[i + 3] + "<br/><br/>";
+        }
+    </script>
+
+    <footer>
+        <div class="contact-info">
+            <p>For concerns/updates regarding the above-mentioned data, please contact <a
+                    href="mailto:webmaster@example.com">
+                    beirutexplosionvictims@gmail.com</a> | &copy 2020 A.K</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
